@@ -1,5 +1,7 @@
 import {
-    //action imports here
+    FETCH_FRIENDS_START,
+    FETCH_FRIENDS_SUCCESS,
+    FETCH_FRIENDS_FAILURE
 } from '../actions'
 
 const initialState = {
@@ -17,6 +19,18 @@ const initialState = {
 
 export const friendsReducer = (state = initialState, action) => {
     switch(action.type) {
+        case FETCH_FRIENDS_START:
+            return{
+                ...state
+            }
+        case FETCH_FRIENDS_SUCCESS:
+            return {
+                ...state
+            }
+        case FETCH_FRIENDS_FAILURE:
+            return{
+                ...state
+            }
         default:
             return state;
     }
