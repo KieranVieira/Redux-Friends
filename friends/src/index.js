@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import logger from 'redux-logger';
 
-import friends from './reducers';
+import { friendsReducer } from './reducers';
 
 const store = createStore(
-    friends, 
+    friendsReducer, 
     applyMiddleware(thunk,logger)
 )
 
