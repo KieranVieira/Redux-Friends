@@ -11,7 +11,9 @@ class FriendsView extends React.Component{
 
     render(){
         return(
-            <FriendsList/>
+            <>
+                <FriendsList friends={this.props.friends}/>
+            </>
         )
     }
 }

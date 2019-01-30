@@ -21,15 +21,20 @@ export const friendsReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_FRIENDS_START:
             return{
-                ...state
+                ...state,
+                fetchingFriends: true
             }
         case FETCH_FRIENDS_SUCCESS:
             return {
-                ...state
+                ...state,
+                fetchingFriends: false,
+                friends: action.payload
             }
         case FETCH_FRIENDS_FAILURE:
             return{
-                ...state
+                ...state,
+                fetchingFriends: false,
+                error: action.payload
             }
         default:
             return state;
