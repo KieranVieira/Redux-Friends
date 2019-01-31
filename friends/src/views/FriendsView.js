@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { fetchFriends, addFriend } from '../store/actions'
+import { fetchFriends, addFriend, deleteFriend } from '../store/actions'
 
 import FriendsList from "../components/FriendsList";
 import FriendForm from '../components/FriendForm'
@@ -36,10 +36,15 @@ class FriendsView extends React.Component{
         this.props.addFriend(this.state.friend);
     }
 
+    toggleDeleteFriend = (e,id) => {
+        e.preventDefault();
+        this.props.deleteFriend(id)
+    }
+
     render(){
         return(
             <>
-                <FriendsList friends={this.props.friends}/>
+                <FriendsList friends={this.props.friends} deleteFriend={this.toggleDeleteFriend}/>
                 <FriendForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
             </>
         )
@@ -56,6 +61,7 @@ export default connect(
     mapStateToProps,
     {
         fetchFriends,
-        addFriend
+        addFriend,
+        deleteFriend
     }
 )(FriendsView)
