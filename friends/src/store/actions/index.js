@@ -19,8 +19,6 @@ export const fetchFriends = () => dispatch => {
         .catch(err => dispatch({ type:FETCH_FRIENDS_FAILURE, payload:err }))
 }
 
-export const saveFriend = () => {}
-
 export const addFriend = (friend) => dispatch => {
     dispatch({ type: ADD_FRIEND_START })
     axios.post('http://localhost:5000/api/friends', friend)
@@ -34,5 +32,7 @@ export const deleteFriend = id => dispatch => {
         .then(res => dispatch({ type: DELETE_FRIEND_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_FRIEND_FAILURE, payload: err }))
 }
+
+export const saveFriend = () => {}
 
 export const updateFriend = () => dispatch => {}

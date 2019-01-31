@@ -14,10 +14,15 @@ class FriendsView extends React.Component{
             name:'',
             age:'',
             email:''
-        }
+        },
+        isUpdating: false
     }
     
     componentDidMount(){
+        this.props.fetchFriends()
+    }
+
+    componentDidUpdate(){
         this.props.fetchFriends()
     }
 
@@ -45,7 +50,7 @@ class FriendsView extends React.Component{
         return(
             <>
                 <FriendsList friends={this.props.friends} deleteFriend={this.toggleDeleteFriend}/>
-                <FriendForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+                <FriendForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} isUpdating={this.state.isUpdating}/>
             </>
         )
     }
